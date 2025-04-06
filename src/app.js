@@ -68,6 +68,7 @@ app.post("/login", async (req, res) => {
       // create a JSOB web token
       const token = await user.getJWT();
       console.log(token);
+      //hello
 
       // add token to cookie and send the responsse back to the user
       res.cookie("token", token, {
