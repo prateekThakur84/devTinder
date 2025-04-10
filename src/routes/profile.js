@@ -1,6 +1,6 @@
 const express = require("express");
 const { userAuth } = require("../middlewares/auth");
-const { validateEditProfileData } = require("../utils/validations");
+const { validateEditProfileData, checkPassword } = require("../utils/validations");
 
 const profileRouter = express.Router();
 
@@ -39,5 +39,16 @@ profileRouter.patch("/profile/edit", userAuth, async (req, res) => {
     res.status(400).send("ERROR : " + err.message);
   }
 });
+
+// make this patch route (/profile/password )
+
+profileRouter.patch("/profile/password", userAuth, async(req,res)=>{
+// console.log(req.user);
+
+// if(!checkPassword(req))
+
+} )
+
+
 
 module.exports = profileRouter;

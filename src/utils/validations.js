@@ -1,3 +1,5 @@
+const validator = require("validator");
+
 const validateSignUpData = (req) => {
   // we can validate everything here and also in user schema for convenience i have used schema and for age here
 
@@ -26,6 +28,19 @@ const validateEditProfileData = (req) => {
   return isEditAllowed;
 };
 
+// const checkPassword = (req)=>{
+
+//   const newPassword = req.body.newPassword;
+
+//   if (!validator.isStrongPassword(newPassword)) {
+//     throw new Error(
+//       "Enter a strong password (at least 1 lowercase, 1 uppercase, 1 number, and 1 special character with a minimum length of 8)"
+//     );
+
+//   }
+
+//   return true;
+// }
 
 module.exports = {
   validateSignUpData,validateEditProfileData
