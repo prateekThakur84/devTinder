@@ -31,4 +31,4 @@
 - GET /user/requests
 - GET /user/feed
 
-Staues : accepted,rejected,ignored, interested
+Staues : accepted,rejected,ignored,interested

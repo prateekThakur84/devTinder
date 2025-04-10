@@ -2,6 +2,7 @@ const express = require("express");
 const { userAuth } = require("../middlewares/auth");
 const ConnectionReqeust = require("../model/connectionRequest");
 const User = require("../model/user");
+const ConnectionRequestModel = require("../model/connectionRequest");
 
 const requestRouter = express.Router();
 
@@ -66,7 +67,10 @@ requestRouter.post(
   async (req, res) => {
     try {
       const logedInUser = req.user;
+      //console.log(logedInUser.firstName);
+      
       const { status, requestId } = req.params;
+      //console.log(requestId);
 
       const allowedStatus = ["accepted", "rejected"];
 
@@ -74,11 +78,11 @@ requestRouter.post(
         return res.status(400).json({ message: "Status not allowed!!" });
       }
 
-      const connectionRequest = await ConnectionReqeust.findOne({
+      const connectionRequest = await ConnectionRequestModel.findOne({
         _id: requestId,
         toUserId: logedInUser._id,
         status: "interested",
-      });
+      }).populate("fromUserId", ["firstName", "lastName", "photoUrl", "age", "gender","About", "Skills"]); // jadoo...
 
       if (!connectionRequest) {
         return res

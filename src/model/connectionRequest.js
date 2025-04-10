@@ -4,10 +4,13 @@ const connectionRequestSchema = new mongoose.Schema(
   {
     fromUserId: {
       type: mongoose.Schema.Types.ObjectId,
+      ref: "User", // connecting two model or giving reference to user model
       required: true,
+      
     },
     toUserId: {
       type: mongoose.Schema.Types.ObjectId,
+      ref: "User", // connecting two model or giving reference to user model
       required: true,
     },
     status: {
