@@ -19,8 +19,11 @@
 <!-- or -->
 - POST /request/send/:status/:userId
 
+
 - POST /request/review/accepted/:requestId
 - POST /request/review/rejected/:requestId
+<!-- or -->
+- POST /request/review/:status/:requestId
 
 ## connectionRequestRouter
 
